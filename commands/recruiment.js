@@ -29,7 +29,6 @@ module.exports = {
                 .setRequired(true)),
 
     async execute(interaction) {
-        // Получаем параметр 'clanname' через interaction.options.get()
         const clanname = interaction.options.get('clanname').value;
 
         try {

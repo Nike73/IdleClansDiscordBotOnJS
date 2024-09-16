@@ -1,4 +1,4 @@
-When you init bot rename 1config.json to config.json and 1monitoringstate.json to monitoringstate.json
+Когда будешь использовать бота не забудь переименовать
+1config.json на config.json и 1monitoringstate.json на monitoringstate.json
 
-
-don't forget setup tokens and ids to config.json
+Не забудь ввести токен бота и clientid с guildid и в url вместо {clanName} на название вашего клана

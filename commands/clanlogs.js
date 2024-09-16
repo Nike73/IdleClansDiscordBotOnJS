@@ -26,16 +26,12 @@ module.exports = {
                 return;
             }
 
-            // Переворачиваем массив, чтобы отправлять логи в обратном порядке
             logs = logs.reverse();
 
-            // Обрезаем массив до заданного лимита
             const limitedLogs = logs.slice(0, limit);
 
-            // Ответим, что логи обрабатываются
             await interaction.reply('Обрабатываю логи...');
 
-            // Отправляем каждое сообщение как отдельное embet-сообщение
             for (const log of limitedLogs) {
                 const { clanName, memberUsername, message, timestamp } = log;
 
