@@ -1,0 +1,4 @@
+When you init bot rename 1config.json to config.json and 1monitoringstate.json to monitoringstate.json
+
+
+don't forget setup tokens and ids to config.json
