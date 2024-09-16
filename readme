@@ -2,3 +2,10 @@
 1config.json на config.json и 1monitoringstate.json на monitoringstate.json
 
 Не забудь ввести токен бота и clientid с guildid и в url вместо {clanName} на название вашего клана
+
+
+Команды:
+
+/logs clanname:[Имя клана] limit:[10] лимит логов | получение логов с клана
+/togglemonitor | Включения мониторинга чекает сайт каждые 30 сек.
+/recruiment clanname:[Имя клана] | Получения информации о клане
