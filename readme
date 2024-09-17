@@ -1,7 +1,8 @@
-Когда будешь использовать бота не забудь переименовать
-1config.json на config.json и 1monitoringstate.json на monitoringstate.json
-
 Не забудь ввести токен бота и clientid с guildid и в url вместо {clanName} на название вашего клана
+
+Для запуска бота требуется Node.js
+
+Инициализация node index.js
 
 
 Команды:
