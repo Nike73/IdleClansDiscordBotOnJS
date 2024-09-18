@@ -2,8 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const { Client, Collection, GatewayIntentBits, REST, Routes } = require('discord.js');
 const { token, clientId, guildId } = require('./config.json');
+const { restoreMonitoring } = require('./commands/monitoringlogs.js');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+});
 client.commands = new Collection();
 
 const commands = [];
@@ -32,10 +35,11 @@ const rest = new REST({ version: '10' }).setToken(token);
     }
 })();
 
+// Когда бот готов
 client.once('ready', () => {
-    console.log(`Бот успешно запущен как ${client.user.tag}`);
+  console.log(`Logged in as ${client.user.tag}`);
+  restoreMonitoring(client);  // Передаем клиент в функцию для восстановления мониторинга
 });
-
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
