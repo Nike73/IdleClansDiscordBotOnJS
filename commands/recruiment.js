@@ -1,13 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
 const xpTable = require('../data/xptable.js');
-const { categoryMap, houseMap } = require('../data/maps.js');
-
-    // Маппинг рангов и кастомных эмодзи (замените на ваши эмодзи ID)
-    const rankEmojis = {
-        1: '<:star:1285266701692309504>',  // Кастомное эмодзи для ранга 1 (ID эмодзи 123456789012345678)
-        2: '<:crown:1285266446884012103>',  // Кастомное эмодзи для ранга 2 (ID эмодзи 987654321098765432)
-    };
+const { categoryMap, houseMap, rankEmojis } = require('../data/maps.js');
 
 function getLevelFromXP(xp) {
     // Находим уровень на основе XP
