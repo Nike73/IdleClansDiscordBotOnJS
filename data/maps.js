@@ -20,4 +20,26 @@ const rankEmojis = {
     2: '<:crown:1285266446884012103>',  // Кастомное эмодзи для ранга 2 (ID эмодзи 987654321098765432)
 };
 
-module.exports = { categoryMap, houseMap, rankEmojis };
+const skillEmojis = {
+    attack: '⚔️',
+    strength: '💪',
+    defence: '🛡️',
+    archery: '🏹',
+    magic: '🪄',
+    health: '❤️',
+    crafting: '🔨',
+    woodcutting: '🌲',
+    carpentry: '🪓',
+    fishing: '🎣',
+    cooking: '🍳',
+    mining: '⛏️',
+    smithing: '⚒️',
+    foraging: '🍂',
+    farming: '🌾',
+    agility: '🏃',
+    plundering: '🏴‍☠️',
+    enchanting: '✨',
+    brewing: '🍺',
+  };
+
+module.exports = { categoryMap, houseMap, rankEmojis, skillEmojis };
