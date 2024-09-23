@@ -2,6 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
 const xpTable = require('../data/xptable.js');
 const { categoryMap, houseMap, rankEmojis } = require('../data/maps.js');
+const { upgradeMap } = require('../data/upgradeMap.js')
 
 function getLevelFromXP(xp) {
     // Находим уровень на основе XP
@@ -58,7 +59,17 @@ module.exports = {
             const category = categoryMap[data.category] || 'Неизвестная категория';
             const recruitmentMessage = data.recruitmentMessage || 'Нету сообщения о найме';
             const language = data.language || 'Не указан язык';
-            const serializedUpgrades = data.serializedUpgrades || 'Нету апгрейдов';
+
+             // Парсим serializedUpgrades и заменяем id на название из карты
+            let upgradesString = '';
+            const upgrades = JSON.parse(data.serializedUpgrades || '[]'); // Преобразуем строку в массив
+
+            // Обрабатываем каждый элемент апгрейдов
+            upgrades.forEach((upgradeId, index) => {
+                // Получаем название апгрейда из карты, если оно есть
+                const upgradeName = upgradeMap[upgradeId] || `Неизвестный апгрейд (${upgradeId})`;
+                upgradesString += `${upgradeName}\n`;
+            });
 
             // Формируем Embed сообщение
             const embed = new EmbedBuilder()
@@ -75,7 +86,7 @@ module.exports = {
                     { name: 'Здание', value: house, inline: true},
                     { name: 'Участники', value: memberNames, inline: false},
                     { name: 'Навыки', value: skillsString, inline: false },
-                    { name: 'Апгрейды', value: serializedUpgrades, inline: false },
+                    { name: 'Апгрейды', value: upgradesString, inline: false },
                     { name: 'Сообщения о найме', value: recruitmentMessage, inline: false },
                 )
 
