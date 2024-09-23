@@ -26,6 +26,16 @@ function saveState(state) {
   fs.writeFileSync(stateFilePath, JSON.stringify(state, null, 2));
 }
 
+// Функция для обновления темы канала
+async function updateChannelTopic(client, channelId) {
+  const channel = client.channels.cache.get(channelId);
+  if (channel) {
+    const newTopic = `Бот был перезапущен в ${new Date().toLocaleString()}`;
+    await channel.setTopic(newTopic)
+      .catch(console.error);
+  }
+}
+
 // Функция для восстановления мониторинга
 function restoreMonitoring(client) {
   if (monitoring && channelId) {
@@ -33,6 +43,7 @@ function restoreMonitoring(client) {
     if (channel) {
       channel.send('Мониторинг продолжается после перезапуска бота.');
     }
+    updateChannelTopic(client, channelId);  // Обновление темы канала
     startMonitoring(client);  // Запуск мониторинга
   }
 }
@@ -110,6 +121,7 @@ module.exports = {
       channelId = interaction.channel.id;
       interaction.reply(`Мониторинг включен. Сообщения будут отправляться в канал ${interaction.channel.name}.`);
       saveState({ monitoring, channelId, lastLogTimestamp });
+      updateChannelTopic(interaction.client, channelId);  // Обновление темы канала
       startMonitoring(interaction.client);
     } else {
       interaction.reply('Мониторинг выключен.');
