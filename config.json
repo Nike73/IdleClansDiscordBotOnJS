@@ -1,0 +1,6 @@
+{
+  "token": "YOUR_BOT_TOKEB",
+  "clientId": "YOUR_CLIENT_ID",
+  "guildId": "YOUR_GUILD_ID",
+  "url": "https://query.idleclans.com/api/Clan/logs/clan/{clanName}"
+}
