@@ -2,6 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
 const levels = require('../data/xptable.js');
 const { skillEmojis } = require('../data/maps.js');
+const itemMap = require('../data/itemMap.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -30,7 +31,7 @@ module.exports = {
                             break;
                         }
                     }
-                        return currentLevel;  // Максимальный уровень 25
+                        return currentLevel;
                       }
 
                     // Рассчитываем уровни для всех навыков
@@ -63,36 +64,42 @@ module.exports = {
                     .setTitle(`Экипировка игрока:`)
                     .setColor('#FFD700')
                     .setTimestamp();
-            
-                  // Добавляем экипировку в embed
-                  if (data.equipment) {
-                    for (const [item, value] of Object.entries(data.equipment)) {
-                      equipmentEmbed.addFields({ name: item.charAt(0).toUpperCase() + item.slice(1), value: `Значение: ${value}`, inline: true });
-                    }
+                    if (data.equipment) {
+                      for (const [itemId, value] of Object.entries(data.equipment)) {
+                          // Заменяем значение, если оно есть в карте
+                          const itemValue = itemMap[value] || value;
+                          equipmentEmbed.addFields({ name: itemId.charAt(0).toUpperCase() + itemId.slice(1), value: `${itemValue}`, inline: true });
+                      }
                   } else {
-                    equipmentEmbed.addFields({ name: 'Экипировка', value: 'Нет данных', inline: true });
+                      equipmentEmbed.addFields({ name: 'Экипировка', value: 'Нет данных', inline: true });
                   }
-                
-                const Bossembet = new EmbedBuilder()
-                .setTitle('Боссы и данжи:')
-                .setColor('#555555')
-                .addFields(
-                    { name: 'Griffin Kills', value: data.griffinKills.toString(), inline: true },
-                    { name: 'Devil Kills', value: data.devilKills.toString(), inline: true },
-                    { name: 'Hades Kills', value: data.hadesKills.toString(), inline: true },
-                    { name: 'Zeus Kills', value: data.zeusKills.toString(), inline: true },
-                    { name: 'Medusa Kills', value: data.medusaKills.toString(), inline: true },
-                    { name: 'Chimera Kills', value: data.chimeraKills.toString(), inline: true },
-                    { name: 'Kronos Kills', value: data.kronosKills.toString(), inline: true },
-                    { name: 'RotG Completions', value: data.reckoningOfTheGodsCompletions.toString(), inline: true },
-                    { name: 'GotC Completions', value: data.guardiansOfTheCitadelCompletions.toString(), inline: true }
-                )
 
-                await interaction.reply({ embeds: [mainEmbed, skillEmbed, equipmentEmbed, Bossembet] });
+//                const Bossembet = new EmbedBuilder()
+//                .setTitle('Боссы и данжи:')
+//                .setColor('#555555')
+//                .addFields(
+//                    { name: 'Griffin Kills', value: data.griffinKills.toString(), inline: true },
+//                   { name: 'Devil Kills', value: data.devilKills.toString(), inline: true },
+//                    { name: 'Hades Kills', value: data.hadesKills.toString(), inline: true },
+//                    { name: 'Zeus Kills', value: data.zeusKills.toString(), inline: true },
+//                    { name: 'Medusa Kills', value: data.medusaKills.toString(), inline: true },
+//                    { name: 'Chimera Kills', value: data.chimeraKills.toString(), inline: true },
+//                    { name: 'Kronos Kills', value: data.kronosKills.toString(), inline: true },
+//                    { name: 'RotG Completions', value: data.reckoningOfTheGodsCompletions.toString(), inline: true },
+//                    { name: 'GotC Completions', value: data.guardiansOfTheCitadelCompletions.toString(), inline: true }
+//                )
+
+                await interaction.reply({ embeds:
+                     [
+                        mainEmbed,
+                        skillEmbed,
+                        equipmentEmbed,
+                        //Bossembet
+                    ] });
                 
         } catch (error) {
             console.error(error);
-            await interaction.reply('Не удалось получить данные о игроке.');
+            await interaction.reply('Не удалось получить данные о игроке. Либо с базы данных не грузит данные о игроке то попозже повторите команду, либо опечатка проверьте правильно ли написан ник игрока');
         }
     },
 };
