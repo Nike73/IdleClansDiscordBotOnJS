@@ -15,6 +15,9 @@ module.exports = {
     async execute(interaction) {
         const name = interaction.options.getString('name');
 
+            // Логирование информации о пользователе, использующем команду
+    console.log(`${interaction.user.tag} использовал команду /profile с параметром name: ${name}`);
+
         try {
             const url = `https://query.idleclans.com/api/Player/profile/${name}`;
             const response = await axios.get(url);
@@ -63,7 +66,6 @@ module.exports = {
                   const equipmentEmbed = new EmbedBuilder()
                     .setTitle(`Экипировка игрока:`)
                     .setColor('#FFD700')
-                    .setTimestamp();
                     if (data.equipment) {
                       for (const [itemId, value] of Object.entries(data.equipment)) {
                           // Заменяем значение, если оно есть в карте
@@ -99,7 +101,7 @@ module.exports = {
                 
         } catch (error) {
             console.error(error);
-            await interaction.reply('Не удалось получить данные о игроке. Либо с базы данных не грузит данные о игроке то попозже повторите команду, либо опечатка проверьте правильно ли написан ник игрока');
+            await interaction.reply('Не удалось получить данные о игроке...');
         }
     },
 };

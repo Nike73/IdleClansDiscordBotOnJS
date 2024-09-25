@@ -18,6 +18,9 @@ module.exports = {
         const limit = interaction.options.getInteger('limit') || 10; // По умолчанию лимит 10
         const url = `https://query.idleclans.com/api/Clan/logs/clan/${clanname}`;
 
+            // Логирование информации о пользователе, использующем команду
+    console.log(`${interaction.user.tag} использовал команду /logs с параметром: ${clanname}, ${limit} `);
+
         try {
             const response = await axios.get(url);
             let logs = response.data;

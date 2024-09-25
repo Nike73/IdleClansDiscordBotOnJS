@@ -26,6 +26,9 @@ module.exports = {
     async execute(interaction) {
         const clanname = interaction.options.get('clanname').value;
 
+            // Логирование информации о пользователе, использующем команду
+    console.log(`${interaction.user.tag} использовал команду /recruitment с параметром name: ${clanname}`);
+
         try {
             // Загружаем данные о клане из API
             const url = `https://query.idleclans.com/api/Clan/recruitment/${clanname}`;
