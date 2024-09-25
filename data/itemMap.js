@@ -34,14 +34,17 @@ module.exports = {
     "51": "Bronze helmet",
     "77": "Platinum helmet",
     "84": "Meteorite helmet",
+    "89": "Titanium helmet",
     "95": "Astronomical helmet",
     "283": "Dark mage's hat",
+    "591": "Miner's helmet",
     "616": "Necromancer's hat",
 
     //Body
     "49": "Bronze platebody",
     "75": "Platinum platebody",
     "81": "Meteorite platebody",
+    "87": "Titanium platebody",
     "93": "Astronomical platebody",
     "280": "Cursed Robe",
 
@@ -54,6 +57,7 @@ module.exports = {
     "50": "Bronze platelegs",
     "76": "Platinum platelegs",
     "82": "Meteorite platelegs",
+    "88": "Titanium platelegs",
     "94": "Astronomical platelegs",
     "281": "Cursed trousers",
     "593": "Miner's pants",
@@ -89,9 +93,11 @@ module.exports = {
     //Left hand
     "78": "Platinum shield",
     "83": "Meteorite shield",
+    "90": "Titanium shield",
     "391": "Wizard's book",
 
     //Right hand
+    "79": "Elite pickaxe",
     "168": "Normal bow",
     "177": "Great scimitar",
     "189": "Superior scimitar",
@@ -100,6 +106,7 @@ module.exports = {
     "313": "Wand of lifesteal",
     "323": "Outstaning saw",
     "539": "Godlike loockpicks",
+    "544": "Superior Philosopher's stone",
     
     //Pet
     "747": "Lil' chopper",
