@@ -78,7 +78,7 @@ async function startMonitoring(client) {
               { name: 'Клан', value: clanName, inline: true },
               { name: 'Участник', value: memberUsername, inline: true },
               { name: 'Лог', value: truncatedMessage },
-              { name: 'Время', value: new Date(timestamp).toLocaleString(), inline: true }
+              { name: 'Дата и Время', value: `Local: ${new Date(timestamp).toLocaleString()} | Discord: <t:${Math.floor(new Date(timestamp).getTime() / 1000)}>`, inline: true }
             )
             .setColor('#00AAFF')
             .setTimestamp();
