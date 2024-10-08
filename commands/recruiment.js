@@ -1,26 +1,26 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
 const xpTable = require('../data/xptable.js');
-const { categoryMap, houseMap, rankEmojis } = require('../data/maps.js');
+const { categoryMap, houseMap, rankEmojis, languageMap, skillEmojis } = require('../data/maps.js');
 const { upgradeMap } = require('../data/upgradeMap.js')
 
+// Подбор уровня из xp
 function getLevelFromXP(xp) {
-    // Находим уровень на основе XP
     for (let i = xpTable.length - 1; i >= 0; i--) {
         if (xp >= xpTable[i].xp) {
             return xpTable[i].level;
         }
     }
-    return 1; // Минимальный уровень, если XP меньше минимального значения
+    return 1;
 }
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('recruitment')
-        .setDescription('Получить данные о клане')
+        .setDescription('Get clan info')
         .addStringOption(option =>
             option.setName('clanname')
-                .setDescription('Название клана')
+                .setDescription('Clan name')
                 .setRequired(true)),
 
     async execute(interaction) {
@@ -35,7 +35,7 @@ module.exports = {
             const response = await axios.get(url);
             const data = response.data;
 
-            // Убедитесь, что 'memberlist' существует
+            // Проверка что 'memberlist' существует
             const members = data.memberlist || [];
 
             // Парсим строку serializedSkills
@@ -45,7 +45,9 @@ module.exports = {
             let skillsString = '';
             for (const [skill, value] of Object.entries(skills)) {
                 const level = getLevelFromXP(value); // Расчёт уровня
-                skillsString += `- ${skill}: Level ${level} (XP: ${value.toFixed(2)})\n`; // Формируем строку с уровнями
+                const skillName = skillEmojis[skill.toLocaleLowerCase()] || skill;
+                skillsString += `- ${skillName} ${skill.charAt(0).toUpperCase() + skill.slice(1)}: Level ${level}\n`; // Формируем строку с уровнями
+                //skillsString += `- ${skill}: Level ${level} (XP: ${value.toFixed(2)})\n`;
             }
 
             // Формируем список участников с эмодзи
@@ -55,13 +57,13 @@ module.exports = {
             }).join('\n');
 
             if (memberNames.length === 0) {
-                memberNames = 'Нету участников';
+                memberNames = 'No members';
             }
 
-            const house = houseMap[data.houseId] || 'Без здания';
-            const category = categoryMap[data.category] || 'Неизвестная категория';
-            const recruitmentMessage = data.recruitmentMessage || 'Нету сообщения о найме';
-            const language = data.language || 'Не указан язык';
+            const house = houseMap[data.houseId] || 'Without house';
+            const category = categoryMap[data.category] || 'No category data';
+            const recruitmentMessage = data.recruitmentMessage || 'No message data';
+            const language = languageMap[data.language] || 'No language';
 
              // Парсим serializedUpgrades и заменяем id на название из карты
             let upgradesString = '';
@@ -70,35 +72,33 @@ module.exports = {
             // Обрабатываем каждый элемент апгрейдов
             upgrades.forEach((upgradeId, index) => {
                 // Получаем название апгрейда из карты, если оно есть
-                const upgradeName = upgradeMap[upgradeId] || `Неизвестный апгрейд (${upgradeId})`;
-                upgradesString += `${upgradeName}\n`;
+                const upgradeName = upgradeMap[upgradeId] || `Unknown upgrade (${upgradeId})`;
+                upgradesString += `- ${upgradeName}\n`;
             });
 
-            // Формируем Embed сообщение
             const embed = new EmbedBuilder()
                 .setColor(0x5DA91E)
-                .setTitle(`Информация о клане ${clanname}`)
+                .setTitle(`Clan info ${clanname}`)
                 .addFields(
-                    { name: 'Название клана', value: data.clanName.toString(), inline: false },
-                    { name: 'Активность', value: data.activityScore.toString(), inline: true },
-                    { name: 'Мин Общ ур', value: data.minimumTotalLevelRequired.toString(), inline: true },
-                    { name: 'Кол-во участ', value: members.length.toString(), inline: true },
-                    { name: 'Нанимают', value: data.isRecruiting ? ':white_check_mark:' : ':negative_squared_cross_mark:', inline: true },
-                    { name: 'Язык клана', value: language, inline: true },
-                    { name: 'Категория', value: category, inline: true },
-                    { name: 'Здание', value: house, inline: true},
-                    { name: 'Участники', value: memberNames, inline: false},
-                    { name: 'Навыки', value: skillsString, inline: false },
-                    { name: 'Апгрейды', value: upgradesString, inline: false },
-                    { name: 'Сообщения о найме', value: recruitmentMessage, inline: false },
+                    { name: 'Clan name:', value: data.clanName.toString(), inline: false },
+                    { name: 'Activity:', value:  `[${data.activityScore.toString()}/100]`, inline: true },
+                    { name: 'Min total level:', value: `[${data.minimumTotalLevelRequired.toString()}/2280]`, inline: true },
+                    { name: 'Member Count:', value: `[${members.length.toString()}/20]`, inline: true },
+                    { name: 'Recruiting:', value: data.isRecruiting ? ':white_check_mark:' : ':negative_squared_cross_mark:', inline: true },
+                    { name: 'Clan language:', value: language, inline: true },
+                    { name: 'Category:', value: category, inline: true },
+                    { name: 'House:', value: house, inline: true},
+                    { name: 'Members:', value: memberNames, inline: false},
+                    { name: 'Skills:', value: skillsString, inline: false },
+                    { name: 'Upgrades:', value: upgradesString, inline: false },
+                    { name: 'Recruitment message:', value: recruitmentMessage, inline: false },
                 )
 
-            // Отправляем сообщение в канал
             await interaction.reply({ embeds: [embed] });
 
         } catch (error) {
             console.error('Ошибка при получении данных из API:', error);
-            await interaction.reply('Не удалось получить данные о клане.');
+            await interaction.reply('Cannot grab clan information.');
         }
     },
 };

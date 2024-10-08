@@ -1,26 +1,33 @@
 const categoryMap = {
-    '1': '🎮 Казуал',
-    '2': '🏆 Соревнующийся',
-    '3': '🔥 Хардкорный',
+    '1': '🎮 Casual',
+    '2': '🏆 Competitive',
+    '3': '🔥 Hardcore',
 };
-
 
 const houseMap = {
-    '0': '<:Guild_house_1:1285272003573715065> Палатка (+5% Xp',
-    '1': '<:Guild_house_2:1285272421334777931> Конюшня (+10% Xp)',
-    '2': '<:Guild_house_3:1285272437222674464> Мельница (+15% Xp)',
-    '3': '<:Guild_house_4:1285272453928456283> Дом (+20% Xp)',
-    '4': '<:Guild_house_5:1285272467551686737> Коттедж (+25% Xp)',
-    '5': '<:Guild_house_6:1285272481149485107> Замок   (+30% Xp)',
+    '0': '<:Guild_house_1:1285272003573715065>[T1] Tent (+5% exp)',
+    '1': '<:Guild_house_2:1285272421334777931>[T2] Barn (+10% exp)',
+    '2': '<:Guild_house_3:1285272437222674464>[T3] Windmill (+15% exp)',
+    '3': '<:Guild_house_4:1285272453928456283>[T4] House (+20% exp)',
+    '4': '<:Guild_house_5:1285272467551686737>[T5] Manor (+25% exp)',
+    '5': '<:Guild_house_6:1285272481149485107>[T6] Castle (+30% exp)',
 };
 
-// Маппинг рангов и кастомных эмодзи (замените на ваши эмодзи ID)
 const rankEmojis = {
-    1: '<:star:1285266701692309504>',  // Кастомное эмодзи для ранга 1 (ID эмодзи 123456789012345678)
-    2: '<:crown:1285266446884012103>',  // Кастомное эмодзи для ранга 2 (ID эмодзи 987654321098765432)
+    1: '<:star:1285266701692309504>',
+    2: '<:crown:1285266446884012103>',
 };
+
+const languageMap = {
+    English: ':flag_us: English',
+    Russian: ':flag_ru: Russian',
+    Spanish: ':flag_ea: Spanish',
+    French: ':flag_fr: French',
+    Turkish: ':flag_tr: Turkish'
+}
 
 const skillEmojis = {
+    rigour: '⚔️',
     attack: '⚔️',
     strength: '💪',
     defence: '🛡️',
@@ -42,4 +49,4 @@ const skillEmojis = {
     brewing: '🍺',
   };
 
-module.exports = { categoryMap, houseMap, rankEmojis, skillEmojis };
+module.exports = { categoryMap, houseMap, rankEmojis, skillEmojis, languageMap };
