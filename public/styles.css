@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #007BFF;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px 0;
+}
+
+strong {
+    color: #333;
+}
+
+.return-button {
+    color: yellow;
+    font-size: 32px;
+    border-radius: 4px;
+}
+
+.logs-body {
+    background-color: #0c0c0ce8;
+}
+
+.recruiment-body {
+    background-color: #cccccce8;
+}
+
+/* Стили для заголовка Clan Logs */
+.logs-title {
+    font-size: 32px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стили для списка логов */
+.logs-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Стили для каждого элемента лога */
+.log-item {
+    text-align: left;
+    background-color: #f5f5f511;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+/* Стили для даты лога */
+.log-date {
+    font-weight: bold;
+    color: #d8d8d8;
+}
+
+/* Стили для названия клана */
+.log-clan {
+    font-style: italic;
+    font-weight: bold;
+    color: #2d93ff;
+}
+
+/* Стили для имени участника */
+.log-member {
+    font-weight: bold;
+    color: #25ff12b2;
+}
+
+/* Стили для сообщения */
+.log-message {
+    color: #dddddd;
+}

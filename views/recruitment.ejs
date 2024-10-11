@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Data</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="recruiment-body">
+    <h1>Recruitment Data for Clan Jhopte</h1> <a href="/" class="return-button">back</a>
+
+    <ul>
+        <li><strong>Clan Name:</strong> <%= recruitmentData.clanName || 'Loading...' %></li>
+        <li><strong>Activity Score:</strong> <%= recruitmentData.activityScore || 'Loading...' %></li>
+        <li><strong>Minimum Total Level Required:</strong> <%= recruitmentData.minimumTotalLevelRequired || 'Loading...' %></li>
+        <li><strong>Recruitment Message:</strong> <%= recruitmentData.recruitmentMessage || 'Loading...' %></li>
+        <li><strong>Member Count:</strong> <%= recruitmentData.memberlist ? recruitmentData.memberlist.length : 'Loading...' %></li>
+        <li><strong>Is Recruiting:</strong> <%= recruitmentData.isRecruiting ? 'Yes' : 'No' %></li>
+    </ul>
+
+    <!-- Отображение скиллов с уровнями -->
+    <h2>Skills</h2>
+    <ul>
+        <% Object.entries(recruitmentData.skills || {}).forEach(([skill, xp]) => { %>
+            <li>
+                <strong><%= skillEmojis[skill.toLowerCase()] || '' %> <%= skill.charAt(0).toUpperCase() + skill.slice(1) %>:</strong> 
+                XP: <%= xp %>, Level: <%= recruitmentData.skillLevels[skill] %>
+            </li>
+        <% }); %>
+    </ul>
+
+    <!-- Отображение апгрейдов -->
+    <h2>Upgrades</h2>
+    <ul>
+        <% recruitmentData.upgrades.forEach(upgrade => { %>
+            <li><strong><%= upgrade %></strong></li>
+        <% }); %>
+    </ul>
+
+    <p>Page refreshes every 200 seconds with new data.</p>
+</body>
+</html>
