@@ -16,32 +16,56 @@ module.exports = {
     "67": "Silver ring",
     "71": "Gold ring",
     "374": "Diamond ring",
+    "618": "Silver precision ring",
+    "619": "Gold precision ring",
+    "620": "Diamon precision ring",
+    "621": "Silver arcane ring",
+    "622": "Gold arcane ring",
     "623": "Diamond arcane ring",
+    "660": "Silver berserker ring",
     "662": "Gold berserker ring",
-
-        //Enchanted rings
-        "417": "Enchanted silver ring",
-        "421": "Enchanted gold ring",
-        "425": "Enchanted diamond ring",
-        "631": "Enchanted gold precision ring",
-        "635": "Enchanted diamond arcane ring",
-        "663": "Enchanted gold berserker ring",
-        "665": "Enchanted diamond berserker ring",
-
+    "664": "Diamond berserker ring",
+    
+    //Enchanted rings
+    "417": "Enchanted silver ring",
+    "421": "Enchanted gold ring",
+    "425": "Enchanted diamond ring",
+    "630": "Enchanted silver precision ring",
+    "631": "Enchanted gold precision ring",
+    "632": "Enchanted diamond precision ring",
+    "633": "Enchanted silver arcane ring",
+    "634": "Enchanted god arcane ring",
+    "635": "Enchanted diamond arcane ring",
+    "661": "Enchanted silver berserker ring",
+    "663": "Enchanted gold berserker ring",
+    "665": "Enchanted diamond berserker ring",
+    
     //Bracelet
     "69": "Silver bracelet",
     "73": "Gold bracelet",
     "376": "Diamond bracelet",
+    "624": "Silver brute bracelet",
     "625": "Gold brute bracelet",
+    "626": "Diamond brute bracelet",
+    "627": "Silver marksman bracelet",
+    "628": "Gold marksman bracelet",
+    "629": "Diamond marksman bracelet",
+    "666": "Silver sorcerer bracelet",
+    "667": "Gold sorcerer bracelet",
+    "668": "Diamond sorcerer bracelet",
 
         //Enchanted bracelets
         "419": "Enchanted silver bracelet",
         "423": "Enchanted gold bracelet",
         "427": "Enchanted diamond bracelet",
+        "636": "Enchanted silver brute bracelet",
         "637": "Enchanted gold brute bracelet",
         "638": "Enchanted diamond brute bracelet",
+        "639": "Enchanted silver marksman bracelet",
+        "640": "Enchanted gold marksman bracelet",
         "641": "Enchanted diamond marksman bracelet",
-        "670": "Enchanted gold bracelet",
+        "669": "Enchanted silver sorcerer bracelet",
+        "670": "Enchanted gold sorcerer bracelet",
         "671": "Enchanted diamond sorcerer bracelet",
 
     //Amulet
@@ -65,10 +89,12 @@ module.exports = {
         "89": "Titanium helmet",
         "95": "Astronomical helmet",
         "564": "Warrior's helmet",
+        "615": "Minotaur's helmet",
 
         //Archery
         "386": "Cowboy hat",
         "387": "Archer's hat",
+        "614": "Centaur's helmet",
 
         //Magic
         "282": "Wizard's hat",
@@ -76,9 +102,11 @@ module.exports = {
         "616": "Necromancer's hat",
 
         //Skilling
+        "588": "Lumberjack's hat",
         "591": "Miner's helmet",
         "594": "Fisherman's hat",
         "597": "Forager's hat",
+        "676": "Chef's hat",
 
 
     //Body
@@ -91,6 +119,7 @@ module.exports = {
         "81": "Meteorite platebody",
         "87": "Titanium platebody",
         "93": "Astronomical platebody",
+        "673": "Warrior's platebody",
 
         //Archery
         "251": "Orange leather coat",
@@ -108,14 +137,48 @@ module.exports = {
 
         //Skilling
         "589": "Lumberjack's jacket",
-        "592": "Miners jacket",
+        "592": "Miner's jacket",
         "595": "Fisherman's jacket",
         "598": "Forager's jacket",
 
-    //Capes
+    //Leggins
+
+        //Melee
+        "50": "Bronze platelegs",
+        "56": "Iron platelegs",
+        "62": "Steel platelegs",
+        "76": "Platinum platelegs",
+        "82": "Meteorite platelegs",
+        "88": "Titanium platelegs",
+        "94": "Astronomical platelegs",
+        "812": "Warrior's platelegs",
+
+        //Archery
+        "250": "Orange leather trousers",
+        "252": "Green leather trousers",
+        "254": "Red leather trousers",
+        "256": "Black leather trousers",
+        "258": "Leather trousers",
+        "584": "Astronomical leather trousers",
+
+        //Magic
+        "277": "Magical trousers",
+        "279": "Enchanted trousers",
+        "281": "Cursed trousers",
+        "582": "Atronomical trousers",
+
+        //Skiling
+        "590": "Lumberjack's pants",
+        "593": "Miner's pants",
+        "596": "Fisherman's pants",
+        "599": "Forager's shorts",
+        "812": "Warrior's platelegs",
+
+    //Back
     "333": "Cape",
     "334": "Knight's cape",
     "335": "Royal cape",
+    "814": "Quiver",
     
         //Mastery capes
         "529": "Completionist cape (Tier 1)",
@@ -203,38 +266,6 @@ module.exports = {
             "526": "Smithing cape (Tier 4)",
             "528": "Woodcutting cape (Tier 4)",
 
-    //Leggins
-
-        //Melee
-        "50": "Bronze platelegs",
-        "56": "Iron platelegs",
-        "62": "Steel platelegs",
-        "76": "Platinum platelegs",
-        "82": "Meteorite platelegs",
-        "88": "Titanium platelegs",
-        "94": "Astronomical platelegs",
-
-        //Archery
-        "250": "Orange leather trousers",
-        "252": "Green leather trousers",
-        "254": "Red leather trousers",
-        "256": "Black leather trousers",
-        "258": "Leather trousers",
-        "584": "Astronomical leather trousers",
-
-        //Magic
-        "277": "Magical trousers",
-        "279": "Enchanted trousers",
-        "281": "Cursed trousers",
-        "582": "Atronomical trousers",
-
-        //Skiling
-        "590": "Lumberjack's pants",
-        "593": "Miner's pants",
-        "596": "Fisherman's pants",
-        "599": "Forager's shorts",
-        "812": "Warrior's platelegs",
-
     //Belts
     "560": "Toolbelt",
     "570": "Warrior's toolbelt",
@@ -251,6 +282,7 @@ module.exports = {
         "235": "Meteorite boots",
         "236": "Titanium boots",
         "237": "Astronomical boots",
+        "701": "Otherworldly boots",
 
         //Archery
         "384": "Boots of quickness",
@@ -261,6 +293,9 @@ module.exports = {
         "617": "Necromancer's boots",
         "678": "Dragonscale boots",
 
+        //Skiling
+        "674": "Artisan's boots",
+
     //Gloves
     "238": "Bronze gloves",
     "239": "Iron gloves",
@@ -270,6 +305,7 @@ module.exports = {
     "243": "Titanium gloves",
     "244": "Astronomical gloves",
     "672": "Treasure hunter gloves",
+    "700": "Otherworldly gloves",
 
     //Ammunition
     "260": "Bronze arrow",
@@ -281,6 +317,9 @@ module.exports = {
     "266": "Astronomical arrow",
 
     //Left hand
+
+    "675": "Granite shield",
+    "677": "Dragonscale shield",
     
         //Melee
         "52": "Bronze shield",
@@ -291,6 +330,7 @@ module.exports = {
         "90": "Titanium shield",
         "96": "Astronomical shield",
         "563": "Bulwark shield",
+        "813": "Spiked shield",
 
         //Archery
         "394": "Archer' shield",
@@ -354,6 +394,12 @@ module.exports = {
             "575": "Infernal club",
             "576": "Stygian longsword",
             "578": "Viperstrike scimitar",
+            "791": "Otherworldly scimitar",
+            "792": "Otherworldly battle axe",
+            "794": "Otherworldly club",
+            "796": "Otherworldly heavy hammer",
+            "797": "Otherworldly longsword",
+            "798": "Otherworldly spear",
 
             //Archery
             "168": "Normal bow",
@@ -372,6 +418,8 @@ module.exports = {
             "217": "Godlike crossbow",
             "566": "Dragon slayer's crossbow",
             "577": "Thunderbolt bow",
+            "793": "Otherworldly bow",
+            "795": "Otherworldly crossbow",
 
             //Magic
             "218": "Normal staff",
@@ -385,6 +433,7 @@ module.exports = {
             "393": "Novice's wand",
             "579": "Divine staff",
             "580": "Sorcerer's staff",
+            "799": "Otherworldly staff",
 
         //Tools
         "53": "Normal pickaxe",
@@ -471,11 +520,29 @@ module.exports = {
         "556": "Superior jumping rope",
         "557": "Outstanding jumping rope",
         "558": "Godlike jumping rope",
+        "740": "Guardian's lamp",
+        "741": "Guardian's brewing spoon",
+        "742": "Guardian's trowel",
+        "743": "Guardian's malet",
+        "744": "Guardian's chisel",
+        "800": "Otherworldly hatchet",
+        "801": "Otherworldly pickaxe",
+        "802": "Otherworldly fishing rod",
+        "803": "Otherworldly rake",
+        "804": "Otherworldly secateurs",
+        "805": "Otherworldly hammer",
+        "806": "Otherworldly saw",
+        "807": "Otherworldly cooking pan",
+        "808": "Otherworldly crafting needle",
+        "809": "Otherworldly philosopher's stone",
+        "810": "Otherworldly lockpicks",
+        "811": "Otherworldly jumping rope",
 
     //Pet
 
         //Skilling
         "747": "Lil' chopper",
+        "748": "Lil' fisher",
         "749": "Lil' miner",
         "750": "Lil' chef",
         "751": "Lil' smither",
@@ -489,21 +556,373 @@ module.exports = {
         "759": "Lil' crafter",
 
         //Combat
+        "763": "Lil' archer (Tier 1)",
         "764": "Lil' wizard (Tier 1)",
+        "768": "Lil' fighter (Tier 1)",
+        "769": "Lil' fighter (Tier 2)",
+        "770": "Lil' fighter (Tier 3)",
+        "771": "Lil' fighter (Tier 4)",
+        "772": "Lil' fighter (Tier 5",
         "773": "Lil' fighter (Tier 6)",
+        "774": "Lil' fighter (Tier 7)",
+        "788": "Lil' fighter (Tier 8)",
+        "775": "Lil' archer (Tier 2)",
+        "776": "Lil' archer (Tier 3)",
+        "777": "Lil' archer (Tier 4)",
         "778": "Lil' archer (Tier 5)",
+        "779": "Lil' archer (Tier 6)",
+        "780": "Lil' archer (Tier 7)",
+        "789": "Lil' archer (Tier 8)",
+        "780": "Lil' wizard (Tier 1)",
         "781": "Lil' wizard (Tier 2)",
+        "782": "Lil' wizard (Tier 3)",
+        "783": "Lil' wizard (Tier 4)",
+        "784": "Lil' wizard (Tier 5)",
+        "785": "Lil' wizard (Tier 6)",
         "786": "Lil' wizard (Tier 7)",
+        "790": "Lil' wizard (Tier 8)",
 
 
 
     //Items
+
+        //Food
+
+            //Raw fish
+            "4": "Perch",
+            "12": "Rackerel",
+            "13": "Trout",
+            "14": "Salmon",
+            "15": "Carp",
+            "155": "Anglerfish",
+            "157": "Zander",
+            "159": "Piranha",
+            "161": "Pufferfish",
+            "163": "Cod",
+            "561": "Tuna",
+
+            //Cooked fish
+            "100": "Cooked mackerel",
+            "102": "Cooked perch",
+            "104": "Cooked trout",
+            "105": "Cooked salmon",
+            "106": "Cooked carp",
+            "156": "Cooked anglerfish",
+            "158": "Cooked zander",
+            "160": "Cooked piranha",
+            "162": "Cooked pufferfish",
+            "164": "Cooked cod",
+            "562": "Cooked Tuna",
+
+            //Raw meat
+            "110": "Raw meat",
+            "111": "Raw giant meat",
+            "112": "Raw quality meat",
+            "113": "Raw superior meat",
+
+            //Cooked meat
+            "114": "Cooked meat",
+            "115": "Cooked giant meat",
+            "116": "Cooked quality meat",
+            "117": "Cooked superrior meat",
+
+            //Foraging food
+            "122": "Blueberry",
+            "165": "Kiwi fruit",
+
+            //Cooked dish
+            "140": "Potato soup",
+            "141": "Meat burger",
+            "143": "Cod soup",
+            "144": "Blueberry pie",
+            "145": "Salmon salad",
+            "146": "Porcini soup",
+            "148": "Power pizza",
+            "550": "Beef stew",
+
+        //Materials
+
+        "19": "Gold",
+
+        //Wood logs
+        "1": "Pine log",
+        "2": "Chestnut log",
+        "6": "Oak log",
+        "7": "Maple log",
+        "8": "Teak log",
+        "9": "Mahogany log",
+        "10": "Yew log",
+        "406": "Redwood log",
+        "407": "Magical log",
+
+        //Planks
+        "20": "Spruce plank",
+        "21": "Pine plank",
+        "22": "Chestnut plank",
+        "23": "Oak plank",
+        "24": "Maple plank",
+        "25": "Teak plank",
+        "26": "Mahogany plank",
+        "27": "Yew plank",
+        "586": "Redwood plank",
+        "587": "Magical plank",
+
+        //Ores
+        "28": "Tin ore",
+        "29": "Copper ore",
+        "30": "Iron ore",
+        "31": "Coal ore",
+        "32": "Silver ore",
+        "33": "Gold ore",
+        "39": "Platinum ore",
+        "40": "Meteorite ore",
+        "41": "Titanium ore",
+        "47": "Astronomical ore",
+        "378": "Diamond ore",
+
+        //Bars
+        "34": "Bronze bar",
+        "35": "Iron bar",
+        "36": "Steel bar",
+        "37": "Silver bar",
+        "38": "Gold bar",
+        "42": "Platinum bar",
+        "45": "Meteorite bar",
+        "46": "Titanuim bar",
+        "48": "Astronomical bar",
+        "379": "Diamond bar",
+
+        //Foraging
+        "118": "Neetle",
+        "125": "Porcini",
+        "138": "Onion",
+        "273": "Magic flax",
+        "274": "Enchanted flax",
+        "275": "Cursed flax",
+        "399": "Seaweed",
+
+        //Seeds
+        "126": "Potato seed",
+        "127": "Carrot seed",
+        "128": "Tomato seed",
+        "129": "Cabbage seed",
+        "130": "Strawberry seed",
+        "131": "Watermelon seed",
+        "400": "Grape seed",
+        "402": "Papaya seed",
+        "403": "Dragonf fruit seed",
+
+        //Farming
+        "132": "Potato",
+        "133": "Carrot",
+        "134": "Tomato",
+        "135": "Cabbage",
+        "136": "Strawberry",
+        "137": "Watermelon",
+        "401": "Grapes",
+        "403": "Papaya",
+        "405": "Dragon fruit",
+
+        //Shop-Donation stuff
+        "337": "Premium memnership token",
+        "550": "Boss hunter token",
+        "551": "premium_permanent_untradeable", //idk what is this
+        "585": "prestige", //same there
+        "600": "Inventory space token",
+        "683": "Auto loadout token",
+        "684": "Clan vault space token",
+        "765": "Questing token",
+
+        //Scrolls
+
+            //Common
+            "347": "Common enchantment scroll (Woodcutting)",
+            "348": "Common enchantment scroll (Plundering)",
+            "349": "Common enchantment scroll (Fishing)",
+            "350": "Common enchantment scroll (Mining)",
+            "351": "Common enchantment scroll (Smithing)",
+            "352": "Common enchantment scroll (Foraging)",
+            "353": "Common enchantment scroll (Farming)",
+            "354": "Common enchantment scroll (Agility)",
+            "355": "Common enchantment scroll (Crafting)",
+            "429": "Common enchantment scroll (Attack)",
+            "431": "Common enchantment scroll (Strength)",
+            "432": "Common enchantment scroll (Defence)",
+            "433": "Common enchantment scroll (Magic)",
+            "434": "Common enchantment scroll (Archery)",
+            "435": "Common enchantment scroll (Carpentry)",
+            "436": "Common enchantment scroll (Enchanting)",
+            "437": "Common enchantment scroll (Brewing)",
+            "547": "Common enchantment scroll (Cooking)",
+
+            //Rare
+            "356": "Rare enchantment scroll (Woodcutting)",
+            "357": "Rare enchantment scroll (Plundering)",
+            "358": "Rare enchantment scroll (Fishing)",
+            "359": "Rare enchantment scroll (Mining)",
+            "360": "Rare enchantment scroll (Smithing)",
+            "361": "Rare enchantment scroll (Foraging)",
+            "362": "Rare enchantment scroll (Farming)",
+            "363": "Rare enchantment scroll (Agility)",
+            "364": "Rare enchantment scroll (Crafing)",
+            "430": "Rare enchantment scroll (Attack)",
+            "438": "Rare enchantment scroll (Strength)",
+            "439": "Rare enchantment scroll (Defence)",
+            "440": "Rare enchantment scroll (Magic)",
+            "441": "Rare enchantment scroll (Archery)",
+            "442": "Rare enchantment scroll (Carpentry)",
+            "443": "Rare enchantment scroll (Enchanting)",
+            "444": "Rare enchantment scroll (Brewing)",
+            "548": "Rare enchantment scroll (Cooking)",
+
+            //Exceptional
+            "365": "Exceptional enchantment scroll (Woodcutting)",
+            "366": "Exceptional enchantment scroll (Plundering)",
+            "367": "Exceptional enchantment scroll (Fishing)",
+            "368": "Exceptional enchantment scroll (Mining)",
+            "369": "Exceptional enchantment scroll (Smithing)",
+            "370": "Exceptional enchantment scroll (Foraging)",
+            "371": "Exceptional enchantment scroll (Farming)",
+            "372": "Exceptional enchantment scroll (Agility)",
+            "373": "Exceptional enchantment scroll (Crafing)",
+            "380": "Exceptional enchantment scroll (Attack)",
+            "445": "Exceptional enchantment scroll (Strength)",
+            "446": "Exceptional enchantment scroll (Defence)",
+            "447": "Exceptional enchantment scroll (Magic)",
+            "448": "Exceptional enchantment scroll (Archery)",
+            "449": "Exceptional enchantment scroll (Carpentry)",
+            "450": "Exceptional enchantment scroll (Enchanting)",
+            "451": "Exceptional enchantment scroll (Brewing)",
+            "549": "Exceptional enchantment scroll (Cooking)",
+        
+            
+         //Gilded
+        "395": "Scroll of Flames",
+        "396": "Scroll of Ghosts",
+        "397": "Scroll of Void",
+        "398": "Scroll of Nature",
+        "766": "Lil' companion",
+        "767": "Lil' swagger",
+            
+        //Potions
+        "408": "Potion of swiftness",
+        "409": "Potion of negotation",
+        "410": "Potion of ressurection",
+        "411": "Potion of forgery",
+        "412": "Potion of great sight",
+        "413": "Potion of trickery",
+        "414": "Potion of dark magic",
+        "415": "Potion of pure power",
+        "416": "Potion of ancient knowledge",
+            
+    //Loot stuff
+    
+    "568": "Astronomical flax",
+    "569": "Astronomical leather",
+
+    //Gemstones
     "225": "Refined gemstone",
     "226": "Great gemstone",
     "227": "Elite gemstone",
     "228": "Superior gemstone",
     "229": "Outstanding gemstone",
-    "230": "Godlike gemstone"
-};
+    "230": "Godlike gemstone",
+    "787": "Otherwordly gemstone",
+    
+    //Leather
+    "245": "Leather",
+    "246": "Orange leather",
+    "247": "Green leather",
+    "248": "Red leather",
+    "249": "Black leather",
+    
+    //Keys
+    "267": "Griffin key",
+    "268": "Devil key",
+    "269": "Hades key",
+    "270": "Zeus key",
+    "271": "Medusa key",
+    "272": "Chimera key",
+    
+    //Chests
+    "381": "Common chest",
+    "382": "Rare chest",
+    "383": "Exceptional chest",
+    
+    //Consumables
+    
+    "818": "Otherworldly essence",
+
+        //Common
+        "601": "Common fishing bait",
+        "603": "Common resin",
+        "605": "Common gem dust",
+        "607": "Common flax essence",
+        "609": "Common compost",
+        "611": "Common vial",
+        "819": "Common thread",
+        "821": "Commom smoke bombs",
+        "823": "Common seasoning",
+        "825": "Common wax",
+    
+        //Rare
+        "602": "Rare fishing bait",
+        "604": "Rare resin",
+        "606": "Rare gem dust",
+        "608": "Rare flax essence",
+        "610": "Rare compost",
+        "612": "Rare vial",
+        "820": "Rare thread",
+        "822": "Rare smoke bombs",
+        "824": "Rare seasoning",
+        "826": "Rare wax",
+    
+    //Symbols
+    "642": "Silver precision symbol",
+    "643": "Gold precision symbol",
+    "644": "Diamond precision symbol",
+    "645": "Silver arcane symbol",
+    "646": "Gold arcane symbol",
+    "647": "Diamond arcane symbol",
+    "648": "Silver brute symbol",
+    "649": "Gold brute symbol",
+    "650": "Diamond brute symbol",
+    "651": "Silver marksman symbol",
+    "652": "Gold marksman symbol",
+    "653": "Diamond marksman symbol",
+    "654": "Silver berserker symbol",
+    "655": "Gold berserker symbol",
+    "656": "Diamon berserker symbol",
+    "657": "Silver sorcerer symbol",
+    "658": "Gold sorcerer symbol",
+    "659": "Diamond sorcerer symbol",
+        
+    //Boss pages
+    "685": "Boss page piece mountain",
+    "686": "Boss page piece burning",
+    "687": "Boss page piece underworld",
+    "688": "Boss page piece godly",
+    "689": "Boss page piece stone",
+    "690": "Boss page piece mutated",
+
+    //Books-scrols
+    "691": "Kronos scroll",
+    "692": "Book of the sage cook",
+    "693": "Book of skinning techniques",
+    "694": "Fisherman's lost page",
+    "695": "Lumberjack's lost page",
+    "696": "Arrow crafting secrets",
+    "697": "Textile manufacturing techniques",
+    "698": "Book of potions",
+    "699": "Negotation techniques",
+    "745": "Citadel's woodworking tips",
+    "746": "Grouping techniques",
+
+    //Clan loot
+    "815": "Spider fang",
+    "816": "Ancient bone",
+    "817": "Golem fragment",
+
+    };
 
 
