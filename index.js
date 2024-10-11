@@ -3,6 +3,7 @@ const path = require('path');
 const { Client, Collection, GatewayIntentBits, REST, Routes } = require('discord.js');
 const { token, clientId, guildId } = require('./config.json');
 const { restoreMonitoring } = require('./commands/monitoringlogs.js');
+const dashboard = require('./dashboard.js');
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -39,6 +40,10 @@ const rest = new REST({ version: '10' }).setToken(token);
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
   restoreMonitoring(client);  // Передаем клиент в функцию для восстановления мониторинга
+});
+
+dashboard.listen(3000, () => {
+  console.log('Dashboard доступен по адресу http://localhost:3000');
 });
 
 client.on('interactionCreate', async interaction => {

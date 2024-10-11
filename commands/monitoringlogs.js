@@ -3,6 +3,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const { url } = require('../config.json');
+const db = require('../database');
 
 // Путь к файлу состояния мониторинга
 const stateFilePath = path.join(__dirname, '../monitoringState.json');
@@ -69,33 +70,49 @@ async function startMonitoring(client) {
       for (const log of logs) {
         const { clanName, memberUsername, message, timestamp } = log;
 
-        if (!lastLogTimestamp || new Date(timestamp) > new Date(lastLogTimestamp)) {
-          const truncatedMessage = message.length > 200 ? message.slice(0, 200) + '...' : message;
-          
-          const embed = new EmbedBuilder()
-            .setTitle('Новый лог клана')
-            .addFields(
-              { name: 'Клан', value: clanName, inline: true },
-              { name: 'Участник', value: memberUsername, inline: true },
-              { name: 'Лог', value: truncatedMessage },
-              { name: 'Дата и Время', value: `Local: ${new Date(timestamp).toLocaleString()} | Discord: <t:${Math.floor(new Date(timestamp).getTime() / 1000)}>`, inline: true }
-            )
-            .setColor('#00AAFF')
-            .setTimestamp();
+        // Проверка на уникальность записи перед вставкой в базу данных
+        const logMessage = `${clanName}${memberUsername}${message}${timestamp}`;
 
-          const logMessage = `${clanName}${memberUsername}${message}${timestamp}`;
-          if (!sentMessages.has(logMessage)) {
-            sentMessages.add(logMessage);
-
-            const channel = client.channels.cache.get(channelId);
-            if (channel) {
-              await channel.send({ embeds: [embed] });
+        // Проверка на существование сообщения в базе данных
+        db.get(`SELECT COUNT(*) AS count FROM logs WHERE clanName = ? AND memberUsername = ? AND message = ? AND timestamp = ?`, 
+          [clanName, memberUsername, message, timestamp], (err, row) => {
+            if (err) {
+              console.error('Ошибка при проверке наличия лога в базе данных:', err.message);
+              return;
             }
 
-            lastLogTimestamp = timestamp;
-            saveState({ monitoring, channelId, lastLogTimestamp });
-          }
-        }
+            // Если запись не найдена, добавляем её в базу данных
+            if (row.count === 0) {
+              const truncatedMessage = message.length > 200 ? message.slice(0, 200) + '...' : message;
+
+              db.run(`INSERT INTO logs (clanName, memberUsername, message, timestamp) VALUES (?, ?, ?, ?)`, 
+                [clanName, memberUsername, truncatedMessage, timestamp], (err) => {
+                  if (err) {
+                    console.error('Ошибка при сохранении лога в базу данных:', err.message);
+                  }
+                });
+
+          const embed = new EmbedBuilder()
+            .setTitle('New clan log')
+            .addFields(
+              { name: 'Clan', value: clanName, inline: true },
+              { name: 'Member', value: memberUsername, inline: true },
+              { name: 'Message', value: truncatedMessage },
+              { name: 'Date & Time', value: `Local: ${new Date(timestamp).toLocaleString()} | Discord: <t:${Math.floor(new Date(timestamp).getTime() / 1000)}>`, inline: true }
+            )
+            .setColor('#00AAFF')
+
+            sentMessages.add(logMessage);
+
+              const channel = client.channels.cache.get(channelId);
+              if (channel) {
+                channel.send({ embeds: [embed] });
+              }
+
+              lastLogTimestamp = timestamp;
+              saveState({ monitoring, channelId, lastLogTimestamp });
+            }
+          });
       }
     } catch (error) {
       console.error('Ошибка при проверке логов:', error);
@@ -121,7 +138,7 @@ module.exports = {
       channelId = interaction.channel.id;
       interaction.reply(`Мониторинг включен. Сообщения будут отправляться в канал ${interaction.channel.name}.`);
       saveState({ monitoring, channelId, lastLogTimestamp });
-      updateChannelTopic(interaction.client, channelId);  // Обновление темы канала
+      updateChannelTopic(interaction.client, channelId);
       startMonitoring(interaction.client);
     } else {
       interaction.reply('Мониторинг выключен.');
