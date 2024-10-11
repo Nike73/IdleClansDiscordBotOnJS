@@ -7,10 +7,10 @@ const itemMap = require('../data/itemMap.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('profile')
-        .setDescription('Получает логи клана и отправляет их как embet-сообщения')
+        .setDescription('Get player data')
         .addStringOption(option =>
             option.setName('name')
-                .setDescription('Имя игрока')
+                .setDescription('Player name')
                 .setRequired(true)),
     async execute(interaction) {
         const name = interaction.options.getString('name');
@@ -44,27 +44,27 @@ module.exports = {
                     }
 
                     const mainEmbed = new EmbedBuilder()
-                    .setTitle(`Статистика игрока: `)
+                    .setTitle(`Player data: `)
                     .addFields(
-                      { name: 'Имя', value: data.username, inline: false },
-                      { name: 'Режим игры', value: data.gameMode, inline: false },
-                      { name: 'Клан', value: data.guildName || 'N/A', inline: false }
+                      { name: 'Name', value: data.username, inline: false },
+                      { name: 'Game mode', value: data.gameMode, inline: false },
+                      { name: 'Clan', value: data.guildName || 'N/A', inline: false }
                     )
                     .setColor('#00AAFF')
                     
                     const skillEmbed = new EmbedBuilder()
-                    .setTitle('Нывыки:')
-                    .setColor('#00AAFF')
+                    .setTitle('Skills:')
+                    .setColor('#00ab41')
                     .setTimestamp();
                   // Добавляем уровни навыков в embed
                   for (const [skill, level] of Object.entries(skillLevels)) {
                     const emoji = skillEmojis[skill] || '';  // Добавляем эмодзи, если есть, иначе пусто
-                    skillEmbed.addFields({ name: `${emoji} ${skill.charAt(0).toUpperCase() + skill.slice(1)}`, value: `Уровень: ${level}`, inline: true });
+                    skillEmbed.addFields({ name: `${emoji} ${skill.charAt(0).toUpperCase() + skill.slice(1)}`, value: `Level: ${level}`, inline: true });
                   }
 
                   // Создаем embed для оборудования (equipment)
                   const equipmentEmbed = new EmbedBuilder()
-                    .setTitle(`Экипировка игрока:`)
+                    .setTitle(`Equipment:`)
                     .setColor('#FFD700')
                     if (data.equipment) {
                       for (const [itemId, value] of Object.entries(data.equipment)) {
@@ -73,7 +73,7 @@ module.exports = {
                           equipmentEmbed.addFields({ name: itemId.charAt(0).toUpperCase() + itemId.slice(1), value: `${itemValue}`, inline: true });
                       }
                   } else {
-                      equipmentEmbed.addFields({ name: 'Экипировка', value: 'Нет данных', inline: true });
+                      equipmentEmbed.addFields({ name: 'Equipment', value: 'Нет данных', inline: true });
                   }
 
 //                const Bossembet = new EmbedBuilder()
@@ -101,7 +101,7 @@ module.exports = {
                 
         } catch (error) {
             console.error(error);
-            await interaction.reply('Не удалось получить данные о игроке...');
+            await interaction.reply('Failed grap player data...');
         }
     },
 };

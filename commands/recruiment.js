@@ -1,8 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
 const xpTable = require('../data/xptable.js');
-const { categoryMap, houseMap, rankEmojis, languageMap, skillEmojis } = require('../data/maps.js');
-const { upgradeMap } = require('../data/upgradeMap.js')
+const { categoryMap, houseMap, rankEmojis, languageMap, skillEmojis, upgradeMap } = require('../data/maps.js');
 
 // Подбор уровня из xp
 function getLevelFromXP(xp) {
