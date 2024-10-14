@@ -1,4 +1,5 @@
 const express = require('express');
+const RateLimit = require('express-rate-limit');
 const db = require('./database'); // Подключение к базе данных
 const path = require('path');
 const app = express();
@@ -11,6 +12,12 @@ app.set('views', path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set up rate limiter: maximum of 100 requests per 15 minutes
+const limiter = RateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // max 100 requests per windowMs
+});
+
 // Основной маршрут для отображения главной страницы dashboard
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'dashboard.html'));
@@ -18,7 +25,7 @@ app.get('/', (req, res) => {
 
 
 // Маршрут для отображения логов
-app.get('/logs', (req, res) => {
+app.get('/logs', limiter, (req, res) => {
     db.all('SELECT * FROM logs ORDER BY timestamp DESC', [], (err, rows) => {
         if (err) {
             res.status(500).send('Ошибка при получении данных из базы');
