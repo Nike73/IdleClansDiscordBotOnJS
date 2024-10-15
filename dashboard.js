@@ -4,10 +4,19 @@ const path = require('path');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http); // Подключаем socket.io
+const RateLimit = require('express-rate-limit');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "views"));
 
+// Set up rate limiter: maximum of 100 requests per 15 minutes
+const limiter = RateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // max 100 requests per windowMs
+});
+
+// Apply rate limiter to all requests
+app.use(limiter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

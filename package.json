@@ -3,7 +3,8 @@
     "@discordjs/rest": "^2.4.0",
     "axios": "^1.7.7",
     "discord-api-types": "^0.37.100",
-    "discord.js": "^14.16.2"
+    "discord.js": "^14.16.2",
+    "express-rate-limit": "^7.4.1"
   },
   "name": "idleclansdiscordbot",
   "version": "1.0.0",
